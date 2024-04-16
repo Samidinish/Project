@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,7 +21,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.propertymanagement.entity.type.MemberStatus;
 import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -66,7 +70,9 @@ public class Member {
             inverseJoinColumns = {@JoinColumn(name = "role_id")})
     private List<Role> roles;
 
-
+    @Enumerated(EnumType.STRING)
+    @ColumnDefault(value = "'ACTIVE'")
+    private MemberStatus status;
 
     @OneToMany(mappedBy = "owner")
     @JsonBackReference

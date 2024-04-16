@@ -1,5 +1,6 @@
 package org.example.propertymanagement.entity;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,7 +13,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
-
+import java.util.List;
 
 @Data
 @Entity
