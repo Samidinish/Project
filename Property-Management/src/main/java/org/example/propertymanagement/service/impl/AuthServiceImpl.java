@@ -118,13 +118,10 @@ public class AuthServiceImpl implements AuthService {
     public TokenResponse issueAccessToken(Principal principal) {
 
         var auth = SecurityContextHolder.getContext().getAuthentication();
-
         var tokenRes = TokenResponse.builder();
-
         tokenRes.accessToken(createToken(auth, principal.getName(), TokenType.ACCESS_TOKEN, ACCESS_TOKEN_EXPIRED))
                 .refreshToken(
                         createToken(auth, principal.getName(), TokenType.REFRESH_TOKEN, REFRESH_TOKEN_EXPIRED));
-
         return tokenRes.build();
     }
 

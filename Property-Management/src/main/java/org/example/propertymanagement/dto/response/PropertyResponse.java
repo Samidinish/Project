@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.propertymanagement.entity.type.PropertyOfferStatus;
 import org.example.propertymanagement.entity.type.PropertyStatus;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -16,18 +15,15 @@ import java.util.List;
 public class PropertyResponse {
 
     private long id;
-
     private String title;
     private double price;
     private String location;
     private String description;
-
     private List<String> pictures;
     private long ownerId;
     private String category;
     private String subCategory;
     private String type;
-
     private PropertyOfferStatus offerStatus;
     private PropertyStatus status;
     private int numberOfRoom;
